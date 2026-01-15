@@ -321,12 +321,16 @@ if (toggleBtn && fullDesc) {
   });
 }
 
-let map = L.map('map').setView([49.5535, 25.5948], 13);
+const mapContainer = document.getElementById('map');
 
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '&copy; OpenStreetMap contributors'
-}).addTo(map);
+if (mapContainer) {
+  let map = L.map('map').setView([49.5535, 25.5948], 13);
 
-L.marker([49.5535, 25.5948]).addTo(map)
-  .bindPopup('Flat')
-  .openPopup();
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
+
+  L.marker([49.5535, 25.5948]).addTo(map)
+    .bindPopup('Flat')
+    .openPopup();
+}
